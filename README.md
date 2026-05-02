@@ -1,7 +1,7 @@
 # Md Minhazur Rahman
 
 **Data Science Researcher & Educator**  
-MSc Data Science (Merit) — University of Greenwich, London  
+MSc Data Science — University of Greenwich, London  
 Chittagong, Bangladesh
 
 ---
