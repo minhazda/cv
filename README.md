@@ -45,7 +45,6 @@ Forecasting](https://doi.org/10.5281/zenodo.19479285)
 [Download CV (PDF)](https://github.com/minhazda/cv/raw/main/Rahman_CV_2026.pdf)
 
 ---
-
 ## Teaching
 
 I develop open teaching materials for data science education
