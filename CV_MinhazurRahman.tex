@@ -1,0 +1,138 @@
+\documentclass[10pt,a4paper]{article}
+
+% ---- packages (all standard; compiles on Overleaf and Tectonic) ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+\definecolor{accent}{HTML}{1F4E79}
+\definecolor{muted}{HTML}{555555}
+
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent}
+
+% tighten everything
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\setlist[itemize]{leftmargin=1.2em, itemsep=1pt, topsep=2pt, parsep=0pt}
+
+% ---- section styling -----------------------------------------------------
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}[\vspace{-0.6em}\color{accent}\rule{\linewidth}{0.8pt}]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+% ---- helpers -------------------------------------------------------------
+% entry: {title}{date}{subtitle}{place}
+\newcommand{\entry}[4]{%
+  \textbf{#1}\hfill{\color{muted}\small #2}\\[1pt]
+  {\color{accent}\itshape #3}\hfill{\color{muted}\itshape\small #4}\par\vspace{2pt}}
+
+\newcommand{\headerrule}{\vspace{2pt}\hrule\vspace{6pt}}
+
+\begin{document}
+
+% ====================== HEADER ============================================
+\begin{center}
+  {\Huge\bfseries\color{accent} MD Minhazur Rahman}\\[3pt]
+  {\large Data Scientist \textperiodcentered\ Machine Learning Engineer}\\[5pt]
+  {\small\color{muted}
+    Chittagong, Bangladesh (open to relocation / visa sponsorship) \quad
+    \href{mailto:minhazurrahman.ds@gmail.com}{minhazurrahman.ds@gmail.com} \quad
+    +880 1303 454309}\\[3pt]
+  {\small
+    \href{https://github.com/minhazda}{github.com/minhazda} \quad
+    \href{https://www.linkedin.com/in/mohammadminhaz/}{in/mohammadminhaz} \quad
+    \href{https://orcid.org/0009-0008-9418-6614}{ORCID 0009-0008-9418-6614}}
+\end{center}
+
+% ====================== SUMMARY ===========================================
+\section{Summary}
+Data scientist and ML engineer with an MSc in Data Science (University of Greenwich) and 3+ years of
+industry data and IT experience. I ship production-grade machine learning end to end --- forecasting,
+imbalanced classification, and LLM/RAG --- with two models live on GCP Cloud Run, deployed by Terraform
+with CI/CD and monitoring. First-author DOI-indexed preprint. Open to Data Scientist / ML Engineer roles
+worldwide with relocation and visa sponsorship.
+
+% ====================== PROJECTS ==========================================
+\section{Selected Projects \textnormal{\small (live, deployed)}}
+
+\entry{Real-Time Demand Forecasting --- Production MLOps Pipeline}{2026}{LightGBM \textperiodcentered\ FastAPI \textperiodcentered\ Docker \textperiodcentered\ Terraform \textperiodcentered\ Cloud Run}{\href{https://github.com/minhazda/synthetic-retail-mlops-pipeline}{github.com/minhazda/synthetic-retail-mlops-pipeline}}
+\begin{itemize}
+  \item \textbf{Cut forecast error 40.8\% MAE / 47.3\% RMSE vs.\ a seasonal-naive baseline} by building a typed, tested LightGBM pipeline with a single shared feature module that eliminates training/serving skew.
+  \item \textbf{Deployed a live, public inference API on GCP Cloud Run} provisioned entirely as code (Terraform) with keyless GitHub$\rightarrow$GCP CI/CD (Workload Identity Federation --- no stored secrets).
+  \item \textbf{Added production observability} with Prometheus metrics, a Grafana dashboard, and Evidently data-drift reporting on the running service.
+\end{itemize}
+
+\entry{Real-Time Card-Fraud Detection --- Imbalanced Classification}{2026}{LightGBM \textperiodcentered\ scikit-learn \textperiodcentered\ FastAPI \textperiodcentered\ Docker \textperiodcentered\ Terraform \textperiodcentered\ Cloud Run}{\href{https://github.com/minhazda/fraud-detection-mlops}{github.com/minhazda/fraud-detection-mlops}}
+\begin{itemize}
+  \item \textbf{Reached ROC-AUC 0.90 and PR-AUC 0.49 ($\sim$8$\times$ the base rate) on held-out data} by handling class imbalance (\texttt{scale\_pos\_weight}) and tuning the decision threshold on a separate validation split.
+  \item \textbf{Served real-time scoring with built-in explainability} --- engineering features from raw transactions at request time and surfacing the risk signals behind each decision in an interactive demo UI.
+\end{itemize}
+
+\entry{Demand Forecasting on Real Retail Data (UCI Online Retail II)}{2026}{pandas \textperiodcentered\ LightGBM \textperiodcentered\ DuckDB \textperiodcentered\ time-series}{\href{https://github.com/minhazda/real-retail-forecasting}{github.com/minhazda/real-retail-forecasting}}
+\begin{itemize}
+  \item \textbf{Improved pooled MAE 26.3\% over a seasonal-naive baseline (beating it on 47/49 product series)} by documenting defensible cleaning of 1.07M real transactions and reproducing the findings in DuckDB SQL.
+\end{itemize}
+
+\entry{Privacy-Preserving RAG Agent --- LLM Tool-Calling}{2026}{LangGraph \textperiodcentered\ ChromaDB \textperiodcentered\ on-device embeddings \textperiodcentered\ FastAPI}{\href{https://github.com/minhazda/privacy-preserving-rag-agent}{github.com/minhazda/privacy-preserving-rag-agent}}
+\begin{itemize}
+  \item \textbf{Shipped a tool-calling RAG agent behind a fail-closed privacy guard} (on-device embeddings, PII redaction) and built a two-tier evaluation: a deterministic CI gate plus a Claude LLM-as-judge harness with Langfuse tracing.
+\end{itemize}
+
+% ====================== EXPERIENCE ========================================
+\section{Professional Experience}
+
+\entry{GPH Ispat Limited}{Feb 2022 -- Aug 2024}{Officer --- Information Technology Department}{Chittagong, Bangladesh}
+\begin{itemize}
+  \item \textbf{Automated departmental reporting and operational workflows} by developing internal Python and SQL tools, reducing manual effort across materials-management and reporting processes.
+  \item \textbf{Sustained daily operational continuity for enterprise systems} used across departments at one of Bangladesh's largest publicly listed (DSE) steel manufacturers, through proactive maintenance and troubleshooting.
+  \item \textbf{Safeguarded data integrity across inventory tracking} by monitoring and reviewing materials-management data feeding company reporting.
+\end{itemize}
+
+\entry{Vcube Soft \& Tech}{2021 -- Feb 2022}{QA Engineer --- Computer Vision Data}{Chittagong, Bangladesh}
+\begin{itemize}
+  \item \textbf{Raised training-data quality for production 3D floor-plan reconstruction models} by curating and validating annotated 360\textdegree\ image datasets and enforcing metadata consistency.
+  \item \textbf{Built QA validation pipelines} that systematically caught annotation errors before they reached model training.
+\end{itemize}
+
+% ====================== EDUCATION =========================================
+\section{Education}
+
+\entry{MSc Data Science --- Pass with Merit}{Sep 2024 -- Jan 2026}{University of Greenwich}{London, United Kingdom}
+\begin{itemize}
+  \item Dissertation (70\%): real-time retail demand forecasting on privacy-preserving synthetic data --- 37\% MAE reduction; published as a first-author DOI-indexed preprint (Zenodo).
+  \item Modules: Applied Machine Learning 71\%, Cloud Computing \& HPC 74\%, Big Data Analytics, Statistical Methods for Time Series.
+\end{itemize}
+
+\entry{BSc Computer Science \& Engineering}{Jan 2017 -- Jan 2021}{Independent University, Chittagong}{Chittagong, Bangladesh}
+\begin{itemize}
+  \item Final-year project: rare-event detection in surveillance video using 3D-ResNet18 and a custom CNN (PyTorch) on the UCF Crime dataset.
+\end{itemize}
+
+% ====================== SKILLS ============================================
+\section{Technical Skills}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+  \textbf{\color{accent}Languages} & Python, SQL, C++, R \\[2pt]
+  \textbf{\color{accent}ML / DS} & scikit-learn, LightGBM, XGBoost, Random Forest, PyTorch; time-series forecasting, imbalanced classification, feature engineering \\[2pt]
+  \textbf{\color{accent}MLOps / Cloud} & Docker, Terraform (IaC), GCP Cloud Run, GitHub Actions (CI/CD), MLflow, Prometheus, Grafana, Evidently \\[2pt]
+  \textbf{\color{accent}LLM / GenAI} & LangGraph, RAG, ChromaDB, LLM-as-judge evaluation, Langfuse \\[2pt]
+  \textbf{\color{accent}Serving / Data} & FastAPI, pandas, NumPy, DuckDB; rolling-origin cross-validation, model evaluation \\
+\end{tabularx}
+
+% ====================== EXTRAS ============================================
+\section{Publications, Awards \& Research}
+\begin{itemize}
+  \item \textbf{Publication:} Rahman, M.\,M. (2026). ``Synthetic Retail Time-Series for Privacy-Preserving Demand Forecasting.'' Preprint, Zenodo. DOI: \href{https://doi.org/10.5281/zenodo.19479285}{10.5281/zenodo.19479285}.
+  \item \textbf{HPC research:} parallel 2D Jacobi solver in C++/OpenMP on an Azure HPC cluster --- 4.81$\times$ speedup on 8 threads.
+  \item \textbf{Awards:} Winner, Game of Presentations 2019 (inter-university); Second Runner-Up, City Bank Bankers' Hunt 2020 (national case competition).
+  \item \textbf{Teaching:} supplementary ML instruction to 10+ MSc peers; 4 years of independent STEM/Python tutoring (15+ students).
+\end{itemize}
+
+% ====================== REFERENCE =========================================
+\section{Reference}
+Dr.\ Tuan Vuong --- MSc Dissertation Supervisor, University of Greenwich \textperiodcentered\ \href{mailto:T.Vuong@greenwich.ac.uk}{T.Vuong@greenwich.ac.uk}. Further references available on request.
+
+\end{document}
