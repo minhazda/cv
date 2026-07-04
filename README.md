@@ -42,7 +42,7 @@ Forecasting](https://doi.org/10.5281/zenodo.19479285)
 
 ## CV
 
-[Download CV (PDF)](https://github.com/minhazda/cv/raw/main/Rahman_CV_2026.pdf)
+[Download CV (PDF)](https://github.com/minhazda/cv/blob/main/CV_MD_MinhazurRahman.pdf)
 
 ---
 ## Teaching
