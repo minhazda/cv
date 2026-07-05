@@ -52,12 +52,13 @@
 \section{Summary}
 Data scientist and ML engineer with an MSc in Data Science (University of Greenwich) and 3+ years of
 industry data and IT experience. I ship production-grade machine learning end to end --- forecasting,
-imbalanced classification, and LLM/RAG --- with two models live on GCP Cloud Run, deployed by Terraform
-with CI/CD and monitoring. First-author DOI-indexed preprint. Open to Data Scientist / ML Engineer roles
-worldwide with relocation and visa sponsorship.
+imbalanced classification, streaming, and LLM/RAG --- with two models live on GCP Cloud Run (Terraform,
+keyless CI/CD, monitoring), a Kafka stream scorer proven end-to-end on Kubernetes in CI, and an
+orchestrated weekly-retraining platform (Dagster, dbt). First-author DOI-indexed preprint. Open to
+Data Scientist / ML Engineer roles worldwide with relocation and visa sponsorship.
 
 % ====================== PROJECTS ==========================================
-\section{Selected Projects \textnormal{\small (live, deployed)}}
+\section{Selected Projects \textnormal{\small (all public; two live)}}
 
 \entry{Real-Time Demand Forecasting --- Production MLOps Pipeline}{2026}{LightGBM \textperiodcentered\ FastAPI \textperiodcentered\ Docker \textperiodcentered\ Terraform \textperiodcentered\ Cloud Run}{\href{https://github.com/minhazda/synthetic-retail-mlops-pipeline}{github.com/minhazda/synthetic-retail-mlops-pipeline}}
 \begin{itemize}
@@ -72,6 +73,18 @@ worldwide with relocation and visa sponsorship.
   \item \textbf{Served real-time scoring with built-in explainability} --- engineering features from raw transactions at request time and surfacing the risk signals behind each decision in an interactive demo UI.
 \end{itemize}
 
+\entry{Event-Driven Fraud Scoring --- Kafka Stream Processing}{2026}{Kafka/Redpanda \textperiodcentered\ Kubernetes \textperiodcentered\ pydantic \textperiodcentered\ Prometheus}{\href{https://github.com/minhazda/streaming-fraud-detection}{github.com/minhazda/streaming-fraud-detection}}
+\begin{itemize}
+  \item \textbf{Built a real-time Kafka/Redpanda stream processor} scoring raw transactions with the fraud model: strict schema validation into a dead-letter queue, an alerts topic, and Prometheus scoring-latency histograms --- with zero training/serving skew (a unit test pins stream scores to batch predictions at $10^{-9}$).
+  \item \textbf{Proved the stack on Kubernetes in CI:} the pipeline unit-tests without a broker via a \texttt{MessageBus} protocol, then every push runs it end-to-end against a real Redpanda broker and deploys it onto a kind cluster.
+\end{itemize}
+
+\entry{Orchestrated Retraining Platform --- Champion/Challenger}{2026}{Dagster \textperiodcentered\ dbt \textperiodcentered\ DuckDB \textperiodcentered\ LightGBM \textperiodcentered\ GitHub Actions}{\href{https://github.com/minhazda/retail-demand-platform}{github.com/minhazda/retail-demand-platform}}
+\begin{itemize}
+  \item \textbf{Orchestrated the full data-to-model graph as Dagster assets:} dbt builds a tested star schema on DuckDB (data-quality tests run as a pipeline stage), then a LightGBM challenger retrains weekly on 1M+ real retail transactions via a scheduled CI job.
+  \item \textbf{Gated deployment on evidence, not retraining:} a champion/challenger rule promotes a new model only on a $\geq$1\% holdout-MAE improvement, with champion metrics versioned in git.
+\end{itemize}
+
 \entry{Demand Forecasting on Real Retail Data (UCI Online Retail II)}{2026}{pandas \textperiodcentered\ LightGBM \textperiodcentered\ DuckDB \textperiodcentered\ time-series}{\href{https://github.com/minhazda/real-retail-forecasting}{github.com/minhazda/real-retail-forecasting}}
 \begin{itemize}
   \item \textbf{Improved pooled MAE 26.3\% over a seasonal-naive baseline (beating it on 47/49 product series)} by documenting defensible cleaning of 1.07M real transactions and reproducing the findings in DuckDB SQL.
@@ -80,6 +93,11 @@ worldwide with relocation and visa sponsorship.
 \entry{Privacy-Preserving RAG Agent --- LLM Tool-Calling}{2026}{LangGraph \textperiodcentered\ ChromaDB \textperiodcentered\ on-device embeddings \textperiodcentered\ FastAPI}{\href{https://github.com/minhazda/privacy-preserving-rag-agent}{github.com/minhazda/privacy-preserving-rag-agent}}
 \begin{itemize}
   \item \textbf{Shipped a tool-calling RAG agent behind a fail-closed privacy guard} (on-device embeddings, PII redaction) and built a two-tier evaluation: a deterministic CI gate plus a Claude LLM-as-judge harness with Langfuse tracing.
+\end{itemize}
+
+\entry{A/B Experiment Analysis Toolkit}{2026}{statistics \textperiodcentered\ CUPED \textperiodcentered\ sequential testing \textperiodcentered\ Hypothesis}{\href{https://github.com/minhazda/experiment-analysis-toolkit}{github.com/minhazda/experiment-analysis-toolkit}}
+\begin{itemize}
+  \item \textbf{Built a typed experimentation toolkit} (power analysis, CUPED variance reduction, always-valid sequential testing) whose test suite verifies the \emph{statistical guarantees themselves}: family-wise false-positive rate under continuous peeking and CI coverage over simulation.
 \end{itemize}
 
 % ====================== EXPERIENCE ========================================
@@ -117,9 +135,11 @@ worldwide with relocation and visa sponsorship.
 \begin{tabularx}{\linewidth}{@{}l X@{}}
   \textbf{\color{accent}Languages} & Python, SQL, C++, R \\[2pt]
   \textbf{\color{accent}ML / DS} & scikit-learn, LightGBM, XGBoost, Random Forest, PyTorch; time-series forecasting, imbalanced classification, feature engineering \\[2pt]
-  \textbf{\color{accent}MLOps / Cloud} & Docker, Terraform (IaC), GCP Cloud Run, GitHub Actions (CI/CD), MLflow, Prometheus, Grafana, Evidently \\[2pt]
+  \textbf{\color{accent}MLOps / Cloud} & Docker, Kubernetes, Terraform (IaC), GCP Cloud Run, GitHub Actions (CI/CD), MLflow, Prometheus, Grafana, Evidently \\[2pt]
+  \textbf{\color{accent}Streaming / Pipelines} & Kafka (Redpanda), Dagster, dbt, DuckDB; schema validation, dead-letter queues, champion/challenger promotion \\[2pt]
   \textbf{\color{accent}LLM / GenAI} & LangGraph, RAG, ChromaDB, LLM-as-judge evaluation, Langfuse \\[2pt]
-  \textbf{\color{accent}Serving / Data} & FastAPI, pandas, NumPy, DuckDB; rolling-origin cross-validation, model evaluation \\
+  \textbf{\color{accent}Serving / Data} & FastAPI, pandas, NumPy, SQL; rolling-origin cross-validation, model evaluation \\[2pt]
+  \textbf{\color{accent}Testing / Quality} & pytest, Hypothesis (property-based), mypy, ruff; typed, tested, reproducible repos \\
 \end{tabularx}
 
 % ====================== EXTRAS ============================================
