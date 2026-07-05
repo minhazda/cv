@@ -83,6 +83,7 @@ Data Scientist / ML Engineer roles worldwide with relocation and visa sponsorshi
 \begin{itemize}
   \item \textbf{Orchestrated the full data-to-model graph as Dagster assets:} dbt builds a tested star schema on DuckDB (data-quality tests run as a pipeline stage), then a LightGBM challenger retrains weekly on 1M+ real retail transactions via a scheduled CI job.
   \item \textbf{Gated deployment on evidence, not retraining:} a champion/challenger rule promotes a new model only on a $\geq$1\% holdout-MAE improvement, with champion metrics versioned in git.
+  \item \textbf{Proved the feature logic scales past one machine:} a PySpark twin of the feature frame (window API), parity-tested against the pandas implementation to $10^{-9}$ in CI on a real JVM.
 \end{itemize}
 
 \entry{Demand Forecasting on Real Retail Data (UCI Online Retail II)}{2026}{pandas \textperiodcentered\ LightGBM \textperiodcentered\ DuckDB \textperiodcentered\ time-series}{\href{https://github.com/minhazda/real-retail-forecasting}{github.com/minhazda/real-retail-forecasting}}
@@ -136,7 +137,7 @@ Data Scientist / ML Engineer roles worldwide with relocation and visa sponsorshi
   \textbf{\color{accent}Languages} & Python, SQL, C++, R \\[2pt]
   \textbf{\color{accent}ML / DS} & scikit-learn, LightGBM, XGBoost, Random Forest, PyTorch; time-series forecasting, imbalanced classification, feature engineering \\[2pt]
   \textbf{\color{accent}MLOps / Cloud} & Docker, Kubernetes, Terraform (IaC), GCP Cloud Run, GitHub Actions (CI/CD), MLflow, Prometheus, Grafana, Evidently \\[2pt]
-  \textbf{\color{accent}Streaming / Pipelines} & Kafka (Redpanda), Dagster, dbt, DuckDB; schema validation, dead-letter queues, champion/challenger promotion \\[2pt]
+  \textbf{\color{accent}Streaming / Pipelines} & Kafka (Redpanda), PySpark, Dagster, dbt, DuckDB; schema validation, dead-letter queues, champion/challenger promotion \\[2pt]
   \textbf{\color{accent}LLM / GenAI} & LangGraph, RAG, ChromaDB, LLM-as-judge evaluation, Langfuse \\[2pt]
   \textbf{\color{accent}Serving / Data} & FastAPI, pandas, NumPy, SQL; rolling-origin cross-validation, model evaluation \\[2pt]
   \textbf{\color{accent}Testing / Quality} & pytest, Hypothesis (property-based), mypy, ruff; typed, tested, reproducible repos \\
