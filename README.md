@@ -25,9 +25,9 @@ Forecasting](https://doi.org/10.5281/zenodo.19479285)
 
 | Repository | Description |
 |---|---|
-| [synthetic-retail-forecasting](https://github.com/minhazda/synthetic-retail-forecasting) | End-to-end privacy-preserving retail demand forecasting pipeline |
-| [data-science-teaching](https://github.com/minhazda/data-science-teaching) | Undergraduate teaching notebooks for data science in Bangladesh |
-| [hpc-research-benchmarks](https://github.com/minhazda/hpc-research-benchmarks) | OpenMP and parallel computing benchmarks |
+| [synthetic-retail-mlops-pipeline](https://github.com/minhazda/synthetic-retail-mlops-pipeline) | Typed, tested, CI/CD-deployed retail forecasting service (GCP Cloud Run) |
+| [fraud-detection-mlops](https://github.com/minhazda/fraud-detection-mlops) | Imbalanced-classification fraud detection, deployed (GCP Cloud Run) |
+| [real-retail-forecasting](https://github.com/minhazda/real-retail-forecasting) | Demand forecasting on real UCI retail data (+26.3% MAE vs. baseline) |
 
 ---
 
@@ -50,4 +50,4 @@ Forecasting](https://doi.org/10.5281/zenodo.19479285)
 I develop open teaching materials for data science education
 in Bangladesh.
 
-[View Teaching Portfolio](https://github.com/minhazda/data-science-teaching)
+[View Teaching Materials](https://github.com/minhazda/applied-time-series-tutorials)
