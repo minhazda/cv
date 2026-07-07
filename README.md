@@ -1,6 +1,6 @@
 # Md Minhazur Rahman
 
-**Data Science Researcher & Educator**  
+**Machine Learning Engineer · Data Scientist · Automation Specialist**  
 MSc Data Science — University of Greenwich, London  
 Chittagong, Bangladesh
 
